@@ -1,0 +1,17 @@
+1.login into system
+2.alter session set "_oracle_script"=true;
+3.create user final identified by Kirthic2002;
+4.grant connect to final;
+5.grant all privileges to final;
+6. exit
+7. login as user - final
+8.create table admin (username varchar(20) ,password varchar(20),id char(1) ,primary key(username));
+9.insert into admin values('admin','admin','1');
+10.create table student(name varchar(50), rollno varchar(10),department varchar(10),section varchar(4),username varchar(10) , password varchar(20),primary key(rollno));
+11.create table course(coursename varchar(20),courseid varchar(10),primary key(courseid));
+12.create table faculty(name varchar(50),facultyid varchar(10),department varchar(20),username varchar(10) , password varchar(10) , courseid varchar (10),primary key(facultyid),foreign key (courseid) references course(courseid) on delete cascade);
+13.create table attendance(rollno varchar(10) , courseid varchar(10) , no_of_attended_classes int , excempted_classes int , total_classes int , attendance_percent float(7),attendance_percent_with_excemption float(7) , foreign key(rollno) references student(rollno) on delete cascade , foreign key(courseid) references course(courseid) on delete cascade);
+
+
+
+
